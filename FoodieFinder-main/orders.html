@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/orders.css">
+    <title>Dashboard | FoodieFinder Admin</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/FoodieFinder Logo's.png" width="200px">
+        </div>
+        <div class="links"><img src="images/Dashboard (TRANSP) .png" width="30px"><a href="dashboard.html">Dashboard</a></div>
+        <div class="links"><img src="images/Menu (TRANSP) .png" width="30px"><a href="menu.html">Menu</a></div>
+        <div class="links"><img src="images/Cloche (TRANSP) .png" width="30px"><a href="orders.html">Orders</a></div>
+        <div class="links"><img src="images/Settings (TRANSP) .png" width="30px"><a href="settings.html">Settings</a></div>
+        <div class="logout" id="logoutBtn"><img src="images/Log out (TRANSP) .png" width="30px"><a href="">Logout</a></div>
+    </div>
+    <header class="header">
+        <div class="header-content">
+            <h1>Product Status</h1>
+        </div>
+    </header>
+    <div class="dashboard-container" id="dashboard-container">
+        <div class="img"><img src="images/Menus (Image).png"></div>
+        <div class="main-content">     
+            <div class="pre-order-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-items">
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", async function () {
+                const id = localStorage.getItem("shop_id");
+                try {
+                    let response = await fetch(`http://localhost/FFproject/FoodieFinder/api/shop-product-status?shop_id=${id}&ngrok-skip-browser-warning=true`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "ngrok-skip-browser-warning": "true"
+                        }
+                    });
+
+                    let rawText = await response.text();
+                    console.log("Raw API Response:", rawText);
+
+                    let data;
+                    try {
+                        data = JSON.parse(rawText);
+                        console.log("Parsed API Response:", data);
+                    } catch (jsonError) {
+                        console.error("JSON Parsing Error. API returned HTML or invalid JSON:", jsonError);
+                        return;
+                    }
+
+                    if (data.status === 200 && Array.isArray(data.data)) {
+                        renderOrders(data.data);
+                    } else {
+                        console.error("Products field is missing or invalid:", data.data);
+                        console.error("Shop ID:", id);
+                        alert("No products found.");
+                    }
+                } catch (error) {
+                    console.error("Fetch Request Failed:", error);
+                }
+
+                document.querySelectorAll(".status").forEach(select => {
+                    select.addEventListener("change", function () {
+                        let index = this.getAttribute("data-index");
+                        orders[index].status = this.value;
+                    });
+                });
+
+                document.querySelectorAll(".completion").forEach(checkbox => {
+                    checkbox.addEventListener("change", function () {
+                        let index = this.getAttribute("data-index");
+                        if (this.checked) {
+                            orders[index].status = "Completed";
+                        } else {
+                            orders[index].status = "Pending";
+                        }
+                        renderOrders();
+                    });
+                });
+            });
+
+            function renderOrders(orders) {
+                const orderTable = document.getElementById("order-items");
+                orderTable.innerHTML = ""; 
+
+                orders.forEach(order => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td><div class="orange-box">${order.email || "N/A"}</div></td>
+                        <td>${order.product_name || "N/A"}</td>
+                        <td>${order.quantity || "N/A"}</td>
+                        <td>
+                            <select class="status" data-id="${order.product_status_id}">
+                                <option value="Pending" ${order.status === "Pending" ? "selected" : ""}>Pending</option>
+                                <option value="Completed" ${order.status === "Completed" ? "selected" : ""}>Completed</option>
+                            </select>
+                        </td>
+                        
+                    `;
+                    orderTable.appendChild(row);
+                });
+
+                document.querySelectorAll(".status").forEach(select => {
+                select.addEventListener("change", function () {
+                    const productId = this.getAttribute("data-id");
+                    const newStatus = this.value;
+                    updateOrderStatus(productId, newStatus);
+                });
+            });
+        }
+
+        async function updateOrderStatus(productId, newStatus) {
+            console.log(`Updating status for product ID ${productId} to ${newStatus}`);
+            try {
+                let response = await fetch("http://localhost/FFproject/FoodieFinder/api/update-status", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ id: productId, status: newStatus })
+                });
+
+                let data = await response.json();
+
+                if (data.status === 200) {
+                    alert("Status updated successfully!");
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Please check your internet connection");
+            }
+        }
+            
+        function checkAuthentication() {
+                const token = localStorage.getItem("token");
+                if (!token) {
+                    window.location.href = "login.html";
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", async function() {
+            const logoutBtn = document.getElementById("logoutBtn");
+            checkAuthentication();
+            fetchDashboard();
+
+            logoutBtn.addEventListener("click", function() {
+                localStorage.removeItem("token");
+                window.location.href = "login.html";
+            });
+        });
+        </script>
+    </div>
+</body>
+</html>

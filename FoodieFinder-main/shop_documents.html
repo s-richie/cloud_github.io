@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FoodieFinder Admin</title>
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/FoodieFinder Logo's.png" width="200px">
+        </div>
+        <div class="links"><a href="admin.html">Dashboard</a></div>
+        <div class="links"><a href="shop_documents.html">Shop documents</a></div>
+        <div class="logout"><img src="images/Log out (TRANSP) .png" width="30px"><a href="">Logout</a></div>
+    </div>
+    <header class="header">
+        <div class="header-content">
+            <h1>Shop Documents</h1>
+        </div>
+    </header>
+    <div class="dashboard-container" id="dashboard-container">
+        <div class="img"><img src="images/Analytics (Image).png"></div>
+        <div class="main-content">
+            <div class="shop-docs">
+                <h3><strong>Shop Documents</strong></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Shop Email</th>
+                        <th>Shop Name</th>
+                        <th>Operating Hours</th>
+                        <th>Shop Category</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="shopTableBody"></tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function fetchShops() {
+            fetch("http://localhost/FFproject/FoodieFinder/api/unverified-shops", {
+                method: "GET",
+                headers: { "ngrok-skip-browser-warning": "true" }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(rawError => {
+                        console.error("Raw error response:", rawError);
+                        throw new Error(`Network response was not ok. Status: ${response.status}, StatusText: ${response.statusText}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 200 && Array.isArray(data.data)) {
+                    shopsData = data.data;
+                    renderShops(shopsData);
+                } else {
+                    console.error("Error fetching shops:", data.message || "Invalid data format");
+                    document.getElementById("shopTableBody").innerHTML = "<tr><td colspan='4'>No shops found.</td></tr>";
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                document.getElementById("shopTableBody").innerHTML = "<tr><td colspan='4'>Error loading shops.</td></tr>";
+            });
+        }
+
+        function renderShops(shops) {
+            const tableBody = document.getElementById("shopTableBody");
+            tableBody.innerHTML = "";
+            shops.forEach(shop => {
+                const formatTime = (time) => {
+                    if (!time) return "N/A";
+                    const [hours, minutes] = time.split(":");
+                    const date = new Date();
+                    date.setHours(hours, minutes);
+                    return date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+                };
+
+                const birCertificate = shop.bir_certificate ? shop.bir_certificate.replace(/\\\//g, "/") : null;
+                const mayorsPermit = shop.mayors_permit ? shop.mayors_permit.replace(/\\\//g, "/") : null;
+                const dtiCertificate = shop.dti_certificate ? shop.dti_certificate.replace(/\\\//g, "/") : null;
+                const bankAccount = shop.bank_account ? shop.bank_account.replace(/\\\//g, "/") : null;
+                const collectionReceipt = shop.collection_receipt ? shop.collection_receipt.replace(/\\\//g, "/") : null;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${shop.email || "N/A"}</td>
+                    <td>${shop.shop_name || "N/A"}</td>
+                    <td>${formatTime(shop.opening_time)} - ${formatTime(shop.closing_time)}</td>
+                    <td>${shop.shop_category || "N/A"}</td>
+                    <td>
+                        <button class="btn btn-primary" onclick="viewCredentials(
+                            '${birCertificate}', 
+                            '${mayorsPermit}', 
+                            '${dtiCertificate}', 
+                            '${bankAccount}', 
+                            '${collectionReceipt}', 
+                            this
+                        )">View</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+                tableBody.appendChild(row);
+            });
+        }  
+
+        function viewCredentials(birCertificate, mayorsPermit, dtiCertificate, bankAccount, collectionReceipt, button) {
+            const parentRow = button.closest("tr");
+            const existingCredentialsRow = parentRow.nextElementSibling; 
+
+            if (existingCredentialsRow && existingCredentialsRow.classList.contains("credentials-row")) {
+                existingCredentialsRow.remove();
+                button.textContent = "View";
+                return;
+            }
+
+            button.textContent = "Close";
+
+            const credentialsRow = document.createElement("tr");
+            credentialsRow.classList.add("credentials-row");
+
+            const credentialsTd = document.createElement("td");
+            credentialsTd.classList.add("credentials-td");
+            credentialsTd.setAttribute("colspan", "5");
+            credentialsTd.style.padding = "10px";
+            credentialsTd.style.backgroundColor = "#f9f9f9";
+
+            const container = document.createElement("div");
+            container.style.padding = "10px";
+            container.style.border = "1px solid #ddd";
+            container.style.backgroundColor = "#fff";
+            container.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+
+            const title = document.createElement("h4");
+            title.textContent = "Credentials";
+            title.style.textAlign = "left";
+            title.style.fontSize = "18px";
+            title.style.marginBottom = "10px";
+            container.appendChild(title);
+
+            const table = document.createElement("table");
+            table.style.width = "100%";
+            table.style.borderCollapse = "collapse";
+
+            const titleRow = document.createElement("tr");
+            const birTitle = document.createElement("th");
+            birTitle.textContent = "BIR Certificate";
+            birTitle.style.textAlign = "center";
+            birTitle.style.padding = "10px";
+            birTitle.style.backgroundColor = "#faa96f";
+            birTitle.style.color = "white";
+            titleRow.appendChild(birTitle);
+
+            const mayorPermitTitle = document.createElement("th");
+            mayorPermitTitle.textContent = "Mayor's Permit";
+            mayorPermitTitle.style.textAlign = "center";
+            mayorPermitTitle.style.padding = "10px";
+            mayorPermitTitle.style.backgroundColor = "#faa96f";
+            mayorPermitTitle.style.color = "white";
+            titleRow.appendChild(mayorPermitTitle);
+
+            const dtiSecTitle = document.createElement("th");
+            dtiSecTitle.textContent = "DTI/SEC";
+            dtiSecTitle.style.textAlign = "center";
+            dtiSecTitle.style.padding = "10px";
+            dtiSecTitle.style.backgroundColor = "#faa96f";
+            dtiSecTitle.style.color = "white";
+            titleRow.appendChild(dtiSecTitle);
+
+            const bankAccountTitle = document.createElement("th");
+            bankAccountTitle.textContent = "Bank Account";
+            bankAccountTitle.style.textAlign = "center";
+            bankAccountTitle.style.padding = "10px";
+            bankAccountTitle.style.backgroundColor = "#faa96f";
+            bankAccountTitle.style.color = "white";
+            titleRow.appendChild(bankAccountTitle);
+
+            const criTitle = document.createElement("th");
+            criTitle.textContent = "CRI";
+            criTitle.style.textAlign = "center";
+            criTitle.style.padding = "10px";
+            criTitle.style.backgroundColor = "#faa96f";
+            criTitle.style.color = "white";
+            titleRow.appendChild(criTitle);
+
+            table.appendChild(titleRow);
+
+            const imageRow = document.createElement("tr");
+            const birCell = document.createElement("td");
+            const birImg = document.createElement("img");
+            birImg.src = birCertificate;
+            birImg.alt = "BIR Certificate";
+            birImg.style.width = "150px";
+            birImg.style.height = "150px";
+            birImg.style.objectFit = "cover";
+            birCell.appendChild(birImg);
+            imageRow.appendChild(birCell);
+
+            const mayorPermitCell = document.createElement("td");
+            const mayorPermitImg = document.createElement("img");
+            mayorPermitImg.src = mayorsPermit;
+            mayorPermitImg.alt = "Mayor's Permit";
+            mayorPermitImg.style.width = "150px";
+            mayorPermitImg.style.height = "150px";
+            mayorPermitImg.style.objectFit = "cover";
+            mayorPermitCell.appendChild(mayorPermitImg);
+            imageRow.appendChild(mayorPermitCell);
+
+            const dtiSecCell = document.createElement("td");
+            const dtiSecImg = document.createElement("img");
+            dtiSecImg.src = dtiCertificate; 
+            dtiSecImg.alt = "DTI/SEC";
+            dtiSecImg.style.width = "150px";
+            dtiSecImg.style.height = "150px";
+            dtiSecImg.style.objectFit = "cover";
+            dtiSecCell.appendChild(dtiSecImg);
+            imageRow.appendChild(dtiSecCell);
+
+            const bankAccountCell = document.createElement("td");
+            const bankAccountImg = document.createElement("img");
+            bankAccountImg.src = bankAccount;
+            bankAccountImg.alt = "Bank Account";
+            bankAccountImg.style.width = "150px";
+            bankAccountImg.style.height = "150px";
+            bankAccountImg.style.objectFit = "cover";
+            bankAccountCell.appendChild(bankAccountImg);
+            imageRow.appendChild(bankAccountCell);
+
+            const criCell = document.createElement("td");
+            const criImg = document.createElement("img");
+            criImg.src = collectionReceipt;
+            criImg.alt = "CRI";
+            criImg.style.width = "150px";
+            criImg.style.height = "150px";
+            criImg.style.objectFit = "cover";
+            criCell.appendChild(criImg);
+            imageRow.appendChild(criCell);
+
+            table.appendChild(imageRow);
+            container.appendChild(table);
+            credentialsTd.appendChild(container);
+
+
+            credentialsRow.appendChild(credentialsTd);
+
+            parentRow.insertAdjacentElement("afterend", credentialsRow);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchShops();
+        });
+        function logout() {
+            localStorage.removeItem("token");
+            localStorage.removeItem("id");
+            window.location.href = "login.html";
+        }
+        document.getElementById("LogoutBtn").addEventListener("click", function() {
+            logout();
+        });
+        function checkAuthentication() {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "login.html";
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            checkAuthentication();
+        });
+        document.getElementById("LogoutBtn").addEventListener("click", function() {
+            logout();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #FFEDE1;
+}
+
+.sidebar {
+    width: 220px;
+    border-radius: 5px;
+    background-color: #030303;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+    overflow-x: hidden;
+    z-index: 1000; /* Ensure the sidebar is above the header */
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links {
+    width: 80%;
+    height: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.links a {
+    color: rgba(255, 255, 255, 0.555);
+    text-decoration: none;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links:hover {
+    background-color: #FAA96C;
+}
+
+.links a:hover {
+    color: aliceblue;
+}
+
+.logout {
+    width: 80%;
+    height: 20px;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.logout a {
+    color: rgba(255, 255, 255, 0.555);
+    text-decoration: none;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout:hover {
+    background-color: #f01911;
+}
+
+.logout:hover a {
+    color: aliceblue;
+}
+.container{
+    width: 100%;
+    height: 300vh;
+    display: flex;
+}
+.main-contents{
+    width: 82%;
+    height: 250vh;
+    margin-left: 260px; 
+}
+.header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.425);
+    z-index: 99;
+}
+.header h1 {
+    color: #FAA96C;
+    margin-right: 200px;
+}
+.contents{
+    width: 100%;
+    height: 89%;
+}
+.profile-section {
+    background-size: cover;
+    background-position: top; /* Change to 'top' to ensure the top part of the image shows */
+    padding: 70px 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+}
+
+/* Create a white background for the lower part of the profile section */
+.profile-section::after {
+    content: '';
+    position: absolute;
+    top: 40%; /* Adjust this value to move the white section up */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* Adjust height of the white section */
+    background-color: white; /* White background for the lower half */
+    border-radius: 10px 10px 0 0; /* Optional: rounded top corners for a softer look */
+}
+
+/* Profile container styles */
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    z-index: 1; /* Ensure the profile container sits above the pseudo-element */
+    position: relative;
+}
+
+/* Profile image styles */
+.profile-image {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: 50px; /* Reduce the margin to lift the profile image up */
+    margin-bottom: 20px;
+}
+
+/* Profile text styles */
+.profile-text h2 {
+    margin-top: 3px;
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* Profile text styles */
+.profile-text p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: grey; /* Change text color to grey */
+}
+
+/* Profile button styles */
+.profile-button {
+    background-color: white;
+    color: #faa96c;
+    outline: 3px solid #faa96c; /* Always visible outline */
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.profile-button:hover {
+    background-color: #e8e6e6;
+}
+
+/* Additional info text */
+.additional-info {
+    font-size: 1.1rem;
+    color: grey;
+    line-height: 1.6;
+    text-align: left; /* Keep the text left-aligned */
+    width: 150%; /* Adjust the width to something less than 100% */
+    max-width: 1000px; /* Optional: limit the width */
+    margin-left: -100px; /* Move the whole block to the left */
+    margin-right: auto; /* Ensure it doesn't overflow to the right */
+    margin-top: 100px;
+}
+/* Form Wrapper Section */
+.form-wrapper {
+    padding: 90px 0px;
+    text-align: center;
+}
+
+.fill-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduced gap between form elements */
+    margin-top: 100px;
+}
+
+/* Remove space between inputs */
+.fill-form .input-container {
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+.fill-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between image and input field */
+    border: 0; /* Border for the container */
+    padding: 5px; /* Padding inside the input container */
+    border-radius: 5px; /* Rounded corners for the container */
+}
+
+.fill-form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Update button styles */
+.submit-btn {
+    background-color: #faa96c;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px; /* Decreased width of the button */
+    height: 40px;
+    margin-top: 40px; /* Optional: space above the button */
+    margin-left: 235px;
+}
+
+.submit-btn:hover {
+    background-color: #ff8c1a;
+}
+
+
+
+/* Additional Section */
+.additional-section {
+    background-color: #ffffff;
+    padding: 40px;
+    text-align: center;
+}
+
+.additional-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.additional-section p {
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.additional-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Styling for the form group */
+.additional-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Add space between label and input container */
+}
+
+/* Label styles */
+.additional-form label {
+    font-weight: bold;
+}
+
+/* Style for input container to align image and input */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between image and input field */
+    border: 1px solid #ccc; /* Border for the container */
+    padding: 5px; /* Padding inside the input container */
+    border-radius: 30px; /* Rounded corners for the container */
+}
+
+.input-container img {
+    width: 25px; /* Adjust the image size */
+    height: 25px;
+}
+
+.additional-form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: none; /* Removed border from the input itself */
+    width: 100%;
+    border-radius: 30px;
+}
+
+/* Button container */
+.button-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Styling for both buttons to be the same size */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 120px; /* Make both buttons same width */
+}
+
+.cancel-btn {
+    background-color: white;
+    color: #faa96c;
+    outline: 3px solid #faa96c; /* Always visible outline */
+    border: none;
+    cursor: pointer;
+    height: 40px;
+}
+
+.cancel-btn:hover {
+    background-color: #e8e6e6;
+}
+
+.update-btn {
+    background-color: #faa96c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 200px;
+}
+
+.update-btn:hover {
+    background-color: #ff8c1a;
+}
