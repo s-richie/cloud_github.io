@@ -1,2 +1,199 @@
-<h1>Porfolio's</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Collection</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #8b949e;
+            font-size: 15px;
+        }
+
+        .cv-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cv-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.25s ease;
+        }
+
+        .cv-item:hover {
+            background: #21262d;
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+        }
+
+        .cv-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .file-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #21262d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .cv-name {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .cv-type {
+            color: #8b949e;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .arrow {
+            font-size: 22px;
+            color: #8b949e;
+            transition: 0.25s ease;
+        }
+
+        .cv-item:hover .arrow {
+            color: #58a6ff;
+            transform: translateX(4px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #6e7681;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>CV Collection</h1>
+            <p>Select a CV to view the document</p>
+        </div>
+
+        <div class="cv-list">
+
+            <!-- Aaron Abad -->
+            <a href="Aaron_Abad_CV.pdf" target="_blank" class="cv-item">
+                <div class="cv-left">
+                    <div class="file-icon">📄</div>
+                    <div>
+                        <div class="cv-name">Aaron Abad CV</div>
+                        <div class="cv-type">PDF Document</div>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <!-- Carl Justine Petrola -->
+            <a href="CarlJustine_Petrola_CV.pdf" target="_blank" class="cv-item">
+                <div class="cv-left">
+                    <div class="file-icon">📄</div>
+                    <div>
+                        <div class="cv-name">Carl Justine Petrola CV</div>
+                        <div class="cv-type">PDF Document</div>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <!-- Lopez -->
+            <a href="Lopez_CV.pdf" target="_blank" class="cv-item">
+                <div class="cv-left">
+                    <div class="file-icon">📄</div>
+                    <div>
+                        <div class="cv-name">Lopez CV</div>
+                        <div class="cv-type">PDF Document</div>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <!-- Suniga -->
+            <a href="Suniga_CV.pdf" target="_blank" class="cv-item">
+                <div class="cv-left">
+                    <div class="file-icon">📄</div>
+                    <div>
+                        <div class="cv-name">Suniga CV</div>
+                        <div class="cv-type">PDF Document</div>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <!-- Villariaza -->
+            <a href="villariaza_cv.pdf" target="_blank" class="cv-item">
+                <div class="cv-left">
+                    <div class="file-icon">📄</div>
+                    <div>
+                        <div class="cv-name">Villariaza CV</div>
+                        <div class="cv-type">PDF Document</div>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            5 CV Documents
+        </div>
+
+    </div>
+
+</body>
+</html>
