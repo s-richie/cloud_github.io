@@ -25,6 +25,26 @@
             margin: auto;
         }
 
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
         h1 {
             font-size: 28px;
             margin-bottom: 5px;
@@ -37,9 +57,9 @@
 
         .contact {
             font-size: 13px;
-            margin-bottom: 20px;
         }
 
+        /* SECTIONS */
         .section {
             margin-top: 18px;
         }
@@ -56,14 +76,15 @@
             font-size: 13px;
         }
 
+        /* SKILLS */
         .skills p {
             margin-bottom: 3px;
         }
 
+        /* EXPERIENCE AND PROJECTS */
         .job,
         .project,
-        .education,
-        .certificate {
+        .education {
             margin-bottom: 12px;
         }
 
@@ -92,6 +113,28 @@
             margin-bottom: 2px;
         }
 
+        /* MOBILE */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 110px;
+                height: 110px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* PRINT */
         @media print {
             body {
                 padding: 0;
@@ -109,24 +152,39 @@
 <div class="resume">
 
     <!-- HEADER -->
-    <header>
-        <h1>RICHELLE ANNE P. SUNIGA</h1>
-        <div class="title">
-            Web Developer | Cloud Programming Major | Computer Security Major
+    <header class="header">
+
+        <img 
+            src="photo.jpg"
+            alt="Richelle Anne P. Suniga"
+            class="profile-photo"
+        >
+
+        <div class="header-info">
+
+            <h1>RICHELLE ANNE P. SUNIGA</h1>
+
+            <div class="title">
+                Web Developer | Cloud Programming Major | Computer Security Major
+            </div>
+
+            <div class="contact">
+                Concepcion, Rosario, La Union | +63 0202431680 | richelleanne0621@gmail.com
+                <br>
+                linkedin.com/in/richellesuniga | github.com/Savierash
+            </div>
+
         </div>
 
-        <div class="contact">
-            Concepcion, Rosario, La Union | +63 0202431680 |
-            richelleanne0621@gmail.com
-            <br>
-            linkedin.com/in/richellesuniga | github.com/Savierash
-        </div>
     </header>
 
 
     <!-- PROFESSIONAL SUMMARY -->
     <section class="section">
-        <div class="section-title">PROFESSIONAL SUMMARY</div>
+
+        <div class="section-title">
+            PROFESSIONAL SUMMARY
+        </div>
 
         <p>
             BS Information Technology student with a focus on web development
@@ -137,12 +195,16 @@
             coursework. Collaborative team member with a track record of
             delivering functional, user-focused academic software projects.
         </p>
+
     </section>
 
 
     <!-- TECHNICAL SKILLS -->
     <section class="section skills">
-        <div class="section-title">TECHNICAL SKILLS</div>
+
+        <div class="section-title">
+            TECHNICAL SKILLS
+        </div>
 
         <p>
             <strong>Programming Languages:</strong>
@@ -174,14 +236,19 @@
             Backend Development, Web Development, Database Management,
             Problem Solving, Teamwork
         </p>
+
     </section>
 
 
     <!-- WORK EXPERIENCE -->
     <section class="section">
-        <div class="section-title">WORK EXPERIENCE</div>
+
+        <div class="section-title">
+            WORK EXPERIENCE
+        </div>
 
         <div class="job">
+
             <div class="job-title">
                 Video Editor / Stock Monitoring & Client Data Management
             </div>
@@ -191,27 +258,43 @@
             </div>
 
             <ul>
-                <li>Edited promotional and social media videos</li>
-                <li>Monitored inventory and maintained accurate stock records</li>
+                <li>
+                    Edited promotional and social media videos
+                </li>
+
+                <li>
+                    Monitored inventory and maintained accurate stock records
+                </li>
+
                 <li>
                     Managed and updated client information while maintaining
                     organized digital records
                 </li>
             </ul>
+
         </div>
+
     </section>
 
 
     <!-- PROJECT EXPERIENCE -->
     <section class="section">
-        <div class="section-title">PROJECT EXPERIENCE</div>
 
+        <div class="section-title">
+            PROJECT EXPERIENCE
+        </div>
+
+
+        <!-- OPEN-PC -->
         <div class="project">
+
             <div class="project-title">
                 Open-PC — Laboratory Management System
             </div>
 
-            <div class="date">2024 - 2025</div>
+            <div class="date">
+                2024 - 2025
+            </div>
 
             <p>
                 <strong>Languages/Tools:</strong>
@@ -223,20 +306,26 @@
                     Developed a laboratory management system to organize and
                     track lab resources and usage records
                 </li>
+
                 <li>
                     Applied backend development and MySQL database design to
                     support core system functionality
                 </li>
             </ul>
+
         </div>
 
 
+        <!-- FETCH & CHILL -->
         <div class="project">
+
             <div class="project-title">
                 Fetch & Chill — Pet Appointment Booking System
             </div>
 
-            <div class="date">2024 - 2025</div>
+            <div class="date">
+                2024 - 2025
+            </div>
 
             <p>
                 <strong>Languages/Tools:</strong>
@@ -248,20 +337,26 @@
                     Developed a web-based booking system enabling users to
                     schedule pet care appointments
                 </li>
+
                 <li>
                     Implemented backend logic and database integration to
                     manage appointment scheduling and records
                 </li>
             </ul>
+
         </div>
 
 
+        <!-- VENUEVISTA -->
         <div class="project">
+
             <div class="project-title">
                 VenueVista — Android Event Booking Application
             </div>
 
-            <div class="date">2024 - 2025</div>
+            <div class="date">
+                2024 - 2025
+            </div>
 
             <p>
                 <strong>Languages/Tools:</strong>
@@ -273,20 +368,26 @@
                     Built an Android application for browsing and booking event
                     venues using Java and Android Studio
                 </li>
+
                 <li>
                     Designed the user interface and backend functionality
                     supporting the end-to-end booking workflow
                 </li>
             </ul>
+
         </div>
 
 
+        <!-- DAMA MASTER -->
         <div class="project">
+
             <div class="project-title">
                 Dama Master — Java Desktop Game
             </div>
 
-            <div class="date">2023 - 2024</div>
+            <div class="date">
+                2023 - 2024
+            </div>
 
             <p>
                 <strong>Languages/Tools:</strong>
@@ -295,19 +396,24 @@
 
             <ul>
                 <li>
-                    Developed a Java-based desktop game, implementing core game
-                    logic and user interaction features
+                    Developed a Java-based desktop game, implementing core
+                    game logic and user interaction features
                 </li>
             </ul>
+
         </div>
 
 
+        <!-- ONLINE ENROLLMENT -->
         <div class="project">
+
             <div class="project-title">
                 Online Enrollment System
             </div>
 
-            <div class="date">2023 - 2024</div>
+            <div class="date">
+                2023 - 2024
+            </div>
 
             <p>
                 <strong>Languages/Tools:</strong>
@@ -319,50 +425,70 @@
                     Built an online enrollment platform to streamline student
                     registration and record-keeping
                 </li>
+
                 <li>
                     Applied web development and database management skills to
                     deliver a functional end-to-end system
                 </li>
             </ul>
+
         </div>
+
     </section>
 
 
     <!-- EDUCATION -->
     <section class="section">
-        <div class="section-title">EDUCATION</div>
+
+        <div class="section-title">
+            EDUCATION
+        </div>
 
         <div class="education">
+
             <div class="education-title">
                 Bachelor of Science in Information Technology, Computer Security
             </div>
 
-            <div class="date">2023 - Present</div>
+            <div class="date">
+                2023 - Present
+            </div>
 
             <div>
                 PHINMA University of Pangasinan
             </div>
+
         </div>
 
+
         <div class="education">
+
             <div class="education-title">
                 Senior High School
             </div>
 
-            <div class="date">2022 - 2023</div>
+            <div class="date">
+                2022 - 2023
+            </div>
 
             <div>
                 Rosario Integrated School
             </div>
+
         </div>
+
     </section>
 
 
     <!-- CERTIFICATES -->
     <section class="section">
-        <div class="section-title">CERTIFICATES</div>
+
+        <div class="section-title">
+            CERTIFICATES
+        </div>
 
         <ul>
+
             <li>
                 Design Thinking Workshop: Exploring Research Innovation Through
                 the Use of IT Solutions
@@ -371,15 +497,21 @@
             <li>
                 Cybersecurity Capture the Flag: Basic Training Seminar
             </li>
+
         </ul>
+
     </section>
 
 
     <!-- KEY ACHIEVEMENTS -->
     <section class="section">
-        <div class="section-title">KEY ACHIEVEMENTS</div>
+
+        <div class="section-title">
+            KEY ACHIEVEMENTS
+        </div>
 
         <ul>
+
             <li>
                 Independently developed and delivered five academic software
                 projects spanning web, mobile, and desktop platforms
@@ -389,7 +521,9 @@
                 Applied backend, database, and project management skills across
                 real work and academic project scenarios
             </li>
+
         </ul>
+
     </section>
 
 </div>
