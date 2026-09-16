@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV</title>
+    <title>CVs</title>
 
     <style>
         * {
@@ -58,7 +58,8 @@
             border-radius: 12px;
             padding: 18px 20px;
             text-decoration: none;
-            color: #ffffff;
+            color: white;
+            cursor: pointer;
             transition: 0.25s ease;
         }
 
@@ -90,96 +91,102 @@
             font-weight: 600;
         }
 
-        .cv-type {
-            color: #8b949e;
-            font-size: 13px;
-            margin-top: 4px;
-        }
-
         .arrow {
             font-size: 22px;
             color: #8b949e;
-            transition: 0.25s ease;
         }
 
         .cv-item:hover .arrow {
             color: #58a6ff;
-            transform: translateX(4px);
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 25px;
-            color: #6e7681;
-            font-size: 13px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="header">
-            <h1>CV Collection</h1>
-            <p>Select a CV to view the document</p>
+    <div class="header">
+        <h1>CV Collection</h1>
+        <p>Select a CV to view the document</p>
+    </div>
+
+    <div class="cv-list">
+
+        <div class="cv-item" onclick="viewCV('Aaron_Abad_CV')">
+            <div class="cv-left">
+                <div class="cv-name">Aaron Abad CV</div>
+            </div>
+            <div class="arrow">→</div>
         </div>
 
-        <div class="cv-list">
+        <div class="cv-item" onclick="viewCV('CarlJustine_Petrola_CV')">
+            <div class="cv-left">
+                
+                <div class="cv-name">Carl Justine Petrola CV</div>
+            </div>
+            <div class="arrow">→</div>
+        </div>
 
-            <!-- Aaron Abad -->
-            <a href="Aaron_Abad_CV" target="_blank" class="cv-item">
-                <div class="cv-left">
-                    <div>
-                        <div class="cv-name">Aaron Abad CV</div>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
+        <div class="cv-item" onclick="viewCV('Lopez_CV')">
+            <div class="cv-left">
+               
+                <div class="cv-name">Lopez CV</div>
+            </div>
+            <div class="arrow">→</div>
+        </div>
 
-            <!-- Carl Justine Petrola -->
-            <a href="CarlJustine_Petrola_CV" target="_blank" class="cv-item">
-                <div class="cv-left">
-                    <div>
-                        <div class="cv-name">Carl Justine Petrola CV</div>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
+        <div class="cv-item" onclick="viewCV('Suniga_CV')">
+            <div class="cv-left">
+                
+                <div class="cv-name">Suniga CV</div>
+            </div>
+            <div class="arrow">→</div>
+        </div>
 
-            <!-- Lopez -->
-            <a href="Lopez_CV" target="_blank" class="cv-item">
-                <div class="cv-left">
-                    <div>
-                        <div class="cv-name">Lopez CV</div>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <!-- Suniga -->
-            <a href="Suniga_CV" target="_blank" class="cv-item">
-                <div class="cv-left">
-                    <div>
-                        <div class="cv-name">Suniga CV</div>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <!-- Villariaza -->
-            <a href="villariaza_cv" target="_blank" class="cv-item">
-                <div class="cv-left">
-                    <div>
-                        <div class="cv-name">Villariaza CV</div>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
+        <div class="cv-item" onclick="viewCV('villariaza_cv')">
+            <div class="cv-left">
+                
+                <div class="cv-name">Villariaza CV</div>
+            </div>
+            <div class="arrow">→</div>
         </div>
 
     </div>
+
+</div>
+
+<script>
+async function viewCV(fileName) {
+
+    try {
+        // Get the CV file
+        const response = await fetch(fileName);
+
+        if (!response.ok) {
+            throw new Error("CV file not found");
+        }
+
+        // Read the file
+        const data = await response.arrayBuffer();
+
+        // Tell the browser that the file is a PDF
+        const pdfBlob = new Blob([data], {
+            type: "application/pdf"
+        });
+
+        // Create a temporary URL
+        const pdfURL = URL.createObjectURL(pdfBlob);
+
+        // Open PDF in a new tab
+        window.open(pdfURL, "_blank");
+
+    } catch (error) {
+        alert("Unable to open this CV.");
+        console.error(error);
+    }
+}
+</script>
 
 </body>
 </html>
