@@ -17,15 +17,13 @@
             background: #0d1117;
             color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
+            padding: 40px;
         }
 
         .container {
             width: 100%;
             max-width: 700px;
+            margin: auto;
         }
 
         .header {
@@ -43,117 +41,73 @@
             font-size: 15px;
         }
 
-        .cv-list {
+        ul {
+            list-style: none;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .cv-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        li {
             background: #161b22;
             border: 1px solid #30363d;
             border-radius: 12px;
             padding: 18px 20px;
-            text-decoration: none;
-            color: white;
-            cursor: pointer;
             transition: 0.25s ease;
         }
 
-        .cv-item:hover {
+        li:hover {
             background: #21262d;
             border-color: #58a6ff;
             transform: translateY(-2px);
         }
 
-        .cv-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .file-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background: #21262d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 21px;
-        }
-
-        .cv-name {
+        a {
+            display: block;
+            color: white;
+            text-decoration: none;
             font-size: 17px;
             font-weight: 600;
         }
 
-        .arrow {
-            font-size: 22px;
-            color: #8b949e;
-        }
-
-        .cv-item:hover .arrow {
+        a:hover {
             color: #58a6ff;
         }
     </style>
-    
 </head>
 
 <body>
 
-<!-- Aaron Abad -->
-<a href="Aaron_Abad_CV" target="_blank" class="cv-item">
-    <div class="cv-left">
-        <div>
-            <div class="cv-name">Aaron Abad CV</div>
-        </div>
-    </div>
-    <div class="arrow">→</div>
-</a>
+    <div class="container">
 
-<!-- Carl Justine Petrola -->
-<a href="CarlJustine_Petrola_CV" target="_blank" class="cv-item">
-    <div class="cv-left">
-        <div>
-            <div class="cv-name">Carl Justine Petrola CV</div>
+        <div class="header">
+            <h1>CV Collection</h1>
+            <p>Select a CV to view the document</p>
         </div>
-    </div>
-    <div class="arrow">→</div>
-</a>
 
-<!-- Lopez -->
-<a href="Lopez_CV" target="_blank" class="cv-item">
-    <div class="cv-left">
-        <div>
-            <div class="cv-name">Lopez CV</div>
-        </div>
-    </div>
-    <div class="arrow">→</div>
-</a>
+        <ul>
+            <li>
+                <a href="Aaron_Abad_CV.html">Aaron Abad CV</a>
+            </li>
 
-<!-- Suniga -->
-<a href="Suniga_CV" target="_blank" class="cv-item">
-    <div class="cv-left">
-        <div>
-            <div class="cv-name">Suniga CV</div>
-        </div>
-    </div>
-    <div class="arrow">→</div>
-</a>
+            <li>
+                <a href="CarlJustine_Petrola_CV.html">Carl Justine Petrola CV</a>
+            </li>
 
-<!-- Villariaza -->
-<a href="villariaza_cv" target="_blank" class="cv-item">
-    <div class="cv-left">
-        <div>
-            <div class="cv-name">Villariaza CV</div>
-        </div>
+            <li>
+                <a href="Lopez_CV.html">Lopez CV</a>
+            </li>
+
+            <li>
+                <a href="Suniga_CV.html">Suniga CV</a>
+            </li>
+
+            <li>
+                <a href="villariaza_cv.html">Villariaza CV</a>
+            </li>
+        </ul>
+
     </div>
-    <div class="arrow">→</div>
-</a>
 
 </body>
 </html>
