@@ -1,661 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Richelle Anne P. Suniga - Web Developer">
-  <title>Richelle Anne P. Suniga | Web Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richelle Anne P. Suniga - CV</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    :root {
-      --bg: #f5f7fa;
-      --card: #ffffff;
-      --text: #17202a;
-      --muted: #5f6b76;
-      --accent: #151515;
-      --line: #e4e8ec;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.4;
+            padding: 40px;
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+        .resume {
+            max-width: 800px;
+            margin: auto;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        .title {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
 
-    .container {
-      width: min(1050px, 92%);
-      margin: 0 auto;
-    }
+        .contact {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
 
-    /* HEADER */
-    header {
-      background: var(--card);
-      border-bottom: 1px solid var(--line);
-      padding: 55px 0 35px;
-    }
+        .section {
+            margin-top: 18px;
+        }
 
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 35px;
-    }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
 
-    .name {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.05;
-      letter-spacing: -1.5px;
-      font-weight: 800;
-    }
+        p {
+            font-size: 13px;
+        }
 
-    .role {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
+        .skills p {
+            margin-bottom: 3px;
+        }
 
-    .contact {
-      text-align: right;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.8;
-    }
+        .job,
+        .project,
+        .education,
+        .certificate {
+            margin-bottom: 12px;
+        }
 
-    /* MAIN */
-    main {
-      padding: 35px 0 60px;
-    }
+        .job-title,
+        .project-title,
+        .education-title {
+            font-weight: bold;
+            font-size: 14px;
+        }
 
-    section {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 28px;
-      margin-bottom: 22px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.035);
-    }
+        .company {
+            font-size: 13px;
+        }
 
-    .section-title {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1.7px;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-    }
+        .date {
+            font-size: 13px;
+        }
 
-    .summary {
-      color: #303a43;
-      max-width: 900px;
-    }
+        ul {
+            margin-left: 20px;
+            margin-top: 3px;
+        }
 
-    /* SKILLS */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px 28px;
-    }
+        li {
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
 
-    .skill strong {
-      display: block;
-      margin-bottom: 3px;
-    }
+        @media print {
+            body {
+                padding: 0;
+            }
 
-    .skill span {
-      color: var(--muted);
-    }
-
-    /* TIMELINE */
-    .timeline-item {
-      position: relative;
-      padding-left: 20px;
-      border-left: 2px solid #d7dce1;
-      margin-bottom: 24px;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      width: 9px;
-      height: 9px;
-      background: var(--accent);
-      border-radius: 50%;
-      left: -5.5px;
-      top: 7px;
-    }
-
-    .item-title {
-      font-size: 1.08rem;
-      font-weight: 750;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin: 2px 0 8px;
-    }
-
-    ul {
-      padding-left: 19px;
-      color: #36414b;
-    }
-
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .project {
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      padding: 18px;
-      background: #fafbfc;
-    }
-
-    .project h3 {
-      margin-bottom: 3px;
-    }
-
-    .project .meta {
-      margin-bottom: 7px;
-    }
-
-    /* TWO COLUMNS */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 5px 0 35px;
-      font-size: 0.85rem;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 720px) {
-      header {
-        padding-top: 35px;
-      }
-
-      .hero,
-      .two-col {
-        display: block;
-      }
-
-      .contact {
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .skills,
-      .projects {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 22px;
-      }
-    }
-
-    /* PRINT */
-    @media print {
-      body {
-        background: white;
-      }
-
-      header {
-        padding-top: 25px;
-      }
-
-      section {
-        box-shadow: none;
-        break-inside: avoid;
-      }
-
-      main {
-        padding-top: 20px;
-      }
-
-      footer {
-        display: none;
-      }
-    }
-  </style>
+            .resume {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container hero">
+<div class="resume">
 
-      <div>
-        <h1 class="name">
-          RICHELLE ANNE P. SUNIGA
-        </h1>
-
-        <p class="role">
-          Web Developer | Cloud Programming Major | Computer Security Major
-        </p>
-      </div>
-
-      <div class="contact">
-        <div>Concepcion, Rosario, La Union</div>
-        <div>+63 0202431680</div>
-        <div>
-          richelleanne0621@gmail.com
+    <!-- HEADER -->
+    <header>
+        <h1>RICHELLE ANNE P. SUNIGA</h1>
+        <div class="title">
+            Web Developer | Cloud Programming Major | Computer Security Major
         </div>
 
-        <div>
-          <a
-            href="https://linkedin.com/in/richellesuniga"
-            target="_blank"
-          >
-            LinkedIn
-          </a>
-
-          ·
-
-          <a
-            href="https://github.com/Savierash"
-            target="_blank"
-          >
-            GitHub
-          </a>
+        <div class="contact">
+            Concepcion, Rosario, La Union | +63 0202431680 |
+            richelleanne0621@gmail.com
+            <br>
+            linkedin.com/in/richellesuniga | github.com/Savierash
         </div>
-      </div>
+    </header>
 
-    </div>
-  </header>
-
-
-  <!-- MAIN CONTENT -->
-  <main class="container">
 
     <!-- PROFESSIONAL SUMMARY -->
-    <section>
+    <section class="section">
+        <div class="section-title">PROFESSIONAL SUMMARY</div>
 
-      <h2 class="section-title">
-        Professional Summary
-      </h2>
-
-      <p class="summary">
-        BS Information Technology student with a focus on web development
-        and hands-on experience building web and mobile applications.
-        Proficient in PHP, JavaScript, HTML, CSS, and MySQL.
-        Skilled in backend development, database management, and
-        full-stack project delivery. Also exploring computer security
-        fundamentals as part of coursework. Collaborative team member
-        with a track record of delivering functional, user-focused
-        academic software projects.
-      </p>
-
+        <p>
+            BS Information Technology student with a focus on web development
+            and hands-on experience building web and mobile applications.
+            Proficient in PHP, JavaScript, HTML, CSS, and MySQL. Skilled in
+            backend development, database management, and full-stack project
+            delivery. Also exploring computer security fundamentals as part of
+            coursework. Collaborative team member with a track record of
+            delivering functional, user-focused academic software projects.
+        </p>
     </section>
 
 
     <!-- TECHNICAL SKILLS -->
-    <section>
+    <section class="section skills">
+        <div class="section-title">TECHNICAL SKILLS</div>
 
-      <h2 class="section-title">
-        Technical Skills
-      </h2>
-
-      <div class="skills">
-
-        <div class="skill">
-          <strong>Programming Languages</strong>
-          <span>
+        <p>
+            <strong>Programming Languages:</strong>
             PHP, JavaScript, Python
-          </span>
-        </div>
+        </p>
 
-        <div class="skill">
-          <strong>Web Technologies</strong>
-          <span>
-            HTML, CSS, MERN Stack
-            (MongoDB, Express.js, React, Node.js)
-          </span>
-        </div>
+        <p>
+            <strong>Web Technologies:</strong>
+            HTML, CSS, MERN Stack (MongoDB, Express.js, React, Node.js)
+        </p>
 
-        <div class="skill">
-          <strong>Database</strong>
-          <span>
+        <p>
+            <strong>Database:</strong>
             MySQL, PHP
-          </span>
-        </div>
+        </p>
 
-        <div class="skill">
-          <strong>Tools & Platforms</strong>
-          <span>
+        <p>
+            <strong>Tools & Platforms:</strong>
             Git, GitHub, Android Studio, Visual Studio Code
-          </span>
-        </div>
+        </p>
 
-        <div class="skill">
-          <strong>AI Tools</strong>
-          <span>
-            OpenAI (ChatGPT), Claude
-          </span>
-        </div>
+        <p>
+            <strong>AI Tools:</strong>
+            OpenAI(ChatGPT) ,Claude
+        </p>
 
-        <div class="skill">
-          <strong>Core Competencies</strong>
-          <span>
-            Backend Development, Web Development,
-            Database Management, Problem Solving, Teamwork
-          </span>
-        </div>
-
-      </div>
-
+        <p>
+            <strong>Core Competencies:</strong>
+            Backend Development, Web Development, Database Management,
+            Problem Solving, Teamwork
+        </p>
     </section>
 
 
     <!-- WORK EXPERIENCE -->
-    <section>
+    <section class="section">
+        <div class="section-title">WORK EXPERIENCE</div>
 
-      <h2 class="section-title">
-        Work Experience
-      </h2>
+        <div class="job">
+            <div class="job-title">
+                Video Editor / Stock Monitoring & Client Data Management
+            </div>
 
-      <div class="timeline-item">
+            <div class="company">
+                Tabtabunago, Rosario, La Union
+            </div>
 
-        <h3 class="item-title">
-          Video Editor / Stock Monitoring & Client Data Management
-        </h3>
-
-        <div class="meta">
-          Tabtabunago, Rosario, La Union
+            <ul>
+                <li>Edited promotional and social media videos</li>
+                <li>Monitored inventory and maintained accurate stock records</li>
+                <li>
+                    Managed and updated client information while maintaining
+                    organized digital records
+                </li>
+            </ul>
         </div>
-
-        <ul>
-          <li>
-            Edited promotional and social media videos.
-          </li>
-
-          <li>
-            Monitored inventory and maintained accurate stock records.
-          </li>
-
-          <li>
-            Managed and updated client information while maintaining
-            organized digital records.
-          </li>
-        </ul>
-
-      </div>
-
     </section>
 
 
     <!-- PROJECT EXPERIENCE -->
-    <section>
+    <section class="section">
+        <div class="section-title">PROJECT EXPERIENCE</div>
 
-      <h2 class="section-title">
-        Project Experience
-      </h2>
+        <div class="project">
+            <div class="project-title">
+                Open-PC — Laboratory Management System
+            </div>
 
-      <div class="projects">
+            <div class="date">2024 - 2025</div>
 
-        <!-- PROJECT 1 -->
-        <article class="project">
+            <p>
+                <strong>Languages/Tools:</strong>
+                JavaScript (MERN Stack), MySQL
+            </p>
 
-          <h3>
-            Open-PC — Laboratory Management System
-          </h3>
-
-          <div class="meta">
-            2024 - 2025 · JavaScript (MERN Stack), MySQL
-          </div>
-
-          <ul>
-            <li>
-              Developed a laboratory management system to organize
-              and track lab resources and usage records.
-            </li>
-
-            <li>
-              Applied backend development and MySQL database design
-              to support core system functionality.
-            </li>
-          </ul>
-
-        </article>
-
-
-        <!-- PROJECT 2 -->
-        <article class="project">
-
-          <h3>
-            Fetch & Chill — Pet Appointment Booking System
-          </h3>
-
-          <div class="meta">
-            2024 - 2025 · Kotlin (Mobile), React (Web)
-          </div>
-
-          <ul>
-            <li>
-              Developed a web-based booking system enabling users
-              to schedule pet care appointments.
-            </li>
-
-            <li>
-              Implemented backend logic and database integration
-              to manage appointment scheduling and records.
-            </li>
-          </ul>
-
-        </article>
-
-
-        <!-- PROJECT 3 -->
-        <article class="project">
-
-          <h3>
-            VenueVista — Android Event Booking Application
-          </h3>
-
-          <div class="meta">
-            2024 - 2025 · Java (Android Studio)
-          </div>
-
-          <ul>
-            <li>
-              Built an Android application for browsing and booking
-              event venues using Java and Android Studio.
-            </li>
-
-            <li>
-              Designed the user interface and backend functionality
-              supporting the end-to-end booking workflow.
-            </li>
-          </ul>
-
-        </article>
-
-
-        <!-- PROJECT 4 -->
-        <article class="project">
-
-          <h3>
-            Dama Master — Java Desktop Game
-          </h3>
-
-          <div class="meta">
-            2023 - 2024 · Java (NetBeans IDE), Figma
-          </div>
-
-          <ul>
-            <li>
-              Developed a Java-based desktop game, implementing
-              core game logic and user interaction features.
-            </li>
-          </ul>
-
-        </article>
-
-
-        <!-- PROJECT 5 -->
-        <article class="project">
-
-          <h3>
-            Online Enrollment System
-          </h3>
-
-          <div class="meta">
-            2023 - 2024 · HTML, CSS, JavaScript
-            (Visual Studio Code)
-          </div>
-
-          <ul>
-            <li>
-              Built an online enrollment platform to streamline
-              student registration and record-keeping.
-            </li>
-
-            <li>
-              Applied web development and database management skills
-              to deliver a functional end-to-end system.
-            </li>
-          </ul>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- EDUCATION + CERTIFICATES -->
-    <section class="two-col">
-
-      <!-- EDUCATION -->
-      <div>
-
-        <h2 class="section-title">
-          Education
-        </h2>
-
-        <div class="timeline-item">
-
-          <h3 class="item-title">
-            Bachelor of Science in Information Technology,
-            Computer Security
-          </h3>
-
-          <div class="meta">
-            2023 - Present
-          </div>
-
-          <p>
-            PHINMA University of Pangasinan
-          </p>
-
+            <ul>
+                <li>
+                    Developed a laboratory management system to organize and
+                    track lab resources and usage records
+                </li>
+                <li>
+                    Applied backend development and MySQL database design to
+                    support core system functionality
+                </li>
+            </ul>
         </div>
 
 
-        <div class="timeline-item">
+        <div class="project">
+            <div class="project-title">
+                Fetch & Chill — Pet Appointment Booking System
+            </div>
 
-          <h3 class="item-title">
-            Senior High School
-          </h3>
+            <div class="date">2024 - 2025</div>
 
-          <div class="meta">
-            2022 - 2023
-          </div>
+            <p>
+                <strong>Languages/Tools:</strong>
+                Kotlin (Mobile), React (Web)
+            </p>
 
-          <p>
-            Rosario Integrated School
-          </p>
-
+            <ul>
+                <li>
+                    Developed a web-based booking system enabling users to
+                    schedule pet care appointments
+                </li>
+                <li>
+                    Implemented backend logic and database integration to
+                    manage appointment scheduling and records
+                </li>
+            </ul>
         </div>
 
-      </div>
+
+        <div class="project">
+            <div class="project-title">
+                VenueVista — Android Event Booking Application
+            </div>
+
+            <div class="date">2024 - 2025</div>
+
+            <p>
+                <strong>Languages/Tools:</strong>
+                Java (Android Studio)
+            </p>
+
+            <ul>
+                <li>
+                    Built an Android application for browsing and booking event
+                    venues using Java and Android Studio
+                </li>
+                <li>
+                    Designed the user interface and backend functionality
+                    supporting the end-to-end booking workflow
+                </li>
+            </ul>
+        </div>
 
 
-      <!-- CERTIFICATES -->
-      <div>
+        <div class="project">
+            <div class="project-title">
+                Dama Master — Java Desktop Game
+            </div>
 
-        <h2 class="section-title">
-          Certificates
-        </h2>
+            <div class="date">2023 - 2024</div>
 
-        <ul>
+            <p>
+                <strong>Languages/Tools:</strong>
+                Java (NetBeans IDE), Figma
+            </p>
 
-          <li>
-            Design Thinking Workshop:
-            Exploring Research Innovation Through the Use of IT Solutions
-          </li>
-
-          <li>
-            Cybersecurity Capture the Flag:
-            Basic Training Seminar
-          </li>
-
-        </ul>
+            <ul>
+                <li>
+                    Developed a Java-based desktop game, implementing core game
+                    logic and user interaction features
+                </li>
+            </ul>
+        </div>
 
 
-        <h2
-          class="section-title"
-          style="margin-top: 28px;"
-        >
-          Key Achievements
-        </h2>
+        <div class="project">
+            <div class="project-title">
+                Online Enrollment System
+            </div>
 
-        <ul>
+            <div class="date">2023 - 2024</div>
 
-          <li>
-            Independently developed and delivered five academic
-            software projects spanning web, mobile, and desktop platforms.
-          </li>
+            <p>
+                <strong>Languages/Tools:</strong>
+                HTML, CSS, JavaScript (Visual Studio Code)
+            </p>
 
-          <li>
-            Applied backend, database, and project management skills
-            across real work and academic project scenarios.
-          </li>
-
-        </ul>
-
-      </div>
-
+            <ul>
+                <li>
+                    Built an online enrollment platform to streamline student
+                    registration and record-keeping
+                </li>
+                <li>
+                    Applied web development and database management skills to
+                    deliver a functional end-to-end system
+                </li>
+            </ul>
+        </div>
     </section>
 
-  </main>
+
+    <!-- EDUCATION -->
+    <section class="section">
+        <div class="section-title">EDUCATION</div>
+
+        <div class="education">
+            <div class="education-title">
+                Bachelor of Science in Information Technology, Computer Security
+            </div>
+
+            <div class="date">2023 - Present</div>
+
+            <div>
+                PHINMA University of Pangasinan
+            </div>
+        </div>
+
+        <div class="education">
+            <div class="education-title">
+                Senior High School
+            </div>
+
+            <div class="date">2022 - 2023</div>
+
+            <div>
+                Rosario Integrated School
+            </div>
+        </div>
+    </section>
 
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Richelle Anne P. Suniga
-  </footer>
+    <!-- CERTIFICATES -->
+    <section class="section">
+        <div class="section-title">CERTIFICATES</div>
+
+        <ul>
+            <li>
+                Design Thinking Workshop: Exploring Research Innovation Through
+                the Use of IT Solutions
+            </li>
+
+            <li>
+                Cybersecurity Capture the Flag: Basic Training Seminar
+            </li>
+        </ul>
+    </section>
+
+
+    <!-- KEY ACHIEVEMENTS -->
+    <section class="section">
+        <div class="section-title">KEY ACHIEVEMENTS</div>
+
+        <ul>
+            <li>
+                Independently developed and delivered five academic software
+                projects spanning web, mobile, and desktop platforms
+            </li>
+
+            <li>
+                Applied backend, database, and project management skills across
+                real work and academic project scenarios
+            </li>
+        </ul>
+    </section>
+
+</div>
 
 </body>
 </html>
