@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Paul S. Lopez - Portfolio</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+        line-height: 1.5;
+    }
+    .page {
+        max-width: 900px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 45px 55px;
+        box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+    header {
+        border-bottom: 2px solid #222;
+        padding-bottom: 20px;
+        margin-bottom: 28px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 42px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .name-last { font-weight: 800; }
+    .name-first { font-weight: 400; }
+    .contact {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #555;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1.8fr;
+        gap: 45px;
+    }
+    section { margin-bottom: 28px; }
+    h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-bottom: 1px solid #bbb;
+        padding-bottom: 7px;
+        margin: 0 0 14px;
+    }
+    h3 {
+        font-size: 16px;
+        margin: 0 0 4px;
+    }
+    p { margin: 0 0 10px; }
+    .muted { color: #666; font-size: 14px; }
+    ul {
+        margin: 0;
+        padding-left: 18px;
+    }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+    .skill {
+        border: 1px solid #aaa;
+        padding: 4px 9px;
+        font-size: 13px;
+        border-radius: 3px;
+    }
+    .item { margin-bottom: 22px; }
+    .role {
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 7px;
+    }
+    a { color: inherit; }
+    @media (max-width: 700px) {
+        .page { margin: 0; padding: 30px 22px; }
+        .grid { grid-template-columns: 1fr; gap: 10px; }
+        h1 { font-size: 34px; }
+    }
+</style>
+</head>
+<body>
+<main class="page">
+    <header>
+        <h1><span class="name-last">LOPEZ</span> <span class="name-first">JOHN PAUL S.</span></h1>
+        <div class="contact">
+            +639628786513 &nbsp; | &nbsp;
+            <a href="mailto:ohso.lopez.up@phinamed.com">ohso.lopez.up@phinamed.com</a>
+        </div>
+    </header>
 
+    <div class="grid">
+        <aside>
+            <section>
+                <h2>Profile</h2>
+                <p>Hi! A sophomore student at PHINMA University of Pangasinan and still looking for languages that will suite me as future programmer and hoping to have the grit in learning these programming languages. Currently using HTML, PHP, CSS and JAVASCRIPT.</p>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="item">
+                    <h3>PHINMA University of Pangasinan</h3>
+                    <p>Studying Bachelor of Science in Information Technology.</p>
+                    <p class="muted">2023 - Present</p>
+                </div>
+                <div class="item">
+                    <h3>Binmaley Catholic Schoool</h3>
+                    <p class="muted">2022-2023</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Work Experience</h2>
+                <div class="item">
+                    <h3>Computer Assembly (OJT)</h3>
+                </div>
+            </section>
+
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills">
+                    <span class="skill">Project Management</span>
+                    <span class="skill">Frontend development</span>
+                    <span class="skill">UI/UX</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Programming Languages</h2>
+                <div class="skills">
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">PHP</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Links</h2>
+                <p><a href="https://github.com/Paullopez0">github.com/Paullopez0</a></p>
+                <p><a href="https://linkedin.com/in/john-paul-soriano-lopez-60b2bb358">linkedin.com/in/john-paul-soriano-lopez-60b2bb358</a></p>
+            </section>
+        </aside>
+
+        <section>
+            <h2>Projects</h2>
+
+            <div class="item">
+                <h3>FOKUS (2024)</h3>
+                <div class="role">Role: Project Manager</div>
+                <p>An application that combines the Pomodoro timer, to-do list and notes into one application, which can help you manage your time.</p>
+            </div>
+
+            <div class="item">
+                <h3>INFO-DOCK (2023-2024)</h3>
+                <div class="role">Role: Frontend Developer</div>
+                <p>A website that provides information about aquatic species and demonstrate techniques that you can implement in starting a hobby or work as fisherman.</p>
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>
