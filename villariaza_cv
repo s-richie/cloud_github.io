@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villariaza Aaron Throy - Resume</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eeeeee;
+            color: #303b4d;
+        }
+
+        .resume {
+            width: 900px;
+            max-width: 95%;
+            margin: 40px auto;
+            background: white;
+            display: grid;
+            grid-template-columns: 30% 70%;
+            min-height: 1100px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            background: #303b4d;
+            color: white;
+            padding: 45px 35px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar h2 {
+            font-size: 21px;
+            margin-bottom: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        .icon {
+            font-size: 18px;
+            min-width: 20px;
+        }
+
+        .sidebar ul {
+            padding-left: 20px;
+        }
+
+        .sidebar li {
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            padding: 50px 45px;
+        }
+
+        .name {
+            font-size: 43px;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #303b4d;
+            margin-bottom: 12px;
+        }
+
+        .job-title {
+            font-size: 21px;
+            margin-bottom: 15px;
+            color: #303b4d;
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #303b4d;
+        }
+
+        .divider {
+            height: 2px;
+            background: #b5b5b5;
+            margin: 12px 0;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.45;
+            margin-bottom: 7px;
+            color: #303030;
+        }
+
+        .project {
+            margin-bottom: 14px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #303b4d;
+        }
+
+        .project-role {
+            font-weight: bold;
+            font-size: 14px;
+            margin: 3px 0 5px;
+        }
+
+        .project ul {
+            padding-left: 20px;
+        }
+
+        .project li {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .school {
+            margin-bottom: 15px;
+        }
+
+        .school-name {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .school ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        .school li {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 750px) {
+            .resume {
+                grid-template-columns: 1fr;
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .sidebar {
+                padding: 30px;
+            }
+
+            .content {
+                padding: 35px 30px;
+            }
+
+            .name {
+                font-size: 34px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .resume {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="resume">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+            <h2>Contact</h2>
+
+            <div class="contact-item">
+                <span class="icon">☎</span>
+                <span>+63 906 094 9065</span>
+            </div>
+
+            <div class="contact-item">
+                <span class="icon">✉</span>
+                <span>villariazaaaronthroy@gmail.com</span>
+            </div>
+
+            <div class="contact-item">
+                <span class="icon">⌖</span>
+                <span>Sitio Zigzag Pallas Binmaley, Pangasinan</span>
+            </div>
+
+            <div class="contact-item">
+                <span class="icon">◆</span>
+                <span>https://github.com/helikopta</span>
+            </div>
+
+            <div class="contact-item">
+                <span class="icon">in</span>
+                <span>linkedin.com/in/AaronVillariaza</span>
+            </div>
+        </div>
+
+
+        <div class="sidebar-section">
+            <h2>Technical Skills</h2>
+
+            <ul>
+                <li>Visual Design</li>
+                <li>Web Design</li>
+                <li>Troubleshooting</li>
+            </ul>
+        </div>
+
+
+        <div class="sidebar-section">
+            <h2>Programming Language<br>and Tools</h2>
+
+            <ul>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>Microsoft Excel</li>
+                <li>Figma &amp; VSCode</li>
+            </ul>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <h1 class="name">
+            VILLARIAZA<br>
+            AARON THROY
+        </h1>
+
+        <div class="job-title">
+            Business Analyst/Designer
+        </div>
+
+
+        <!-- PROFILE -->
+        <section class="section">
+            <h2 class="section-title">Profile Summary</h2>
+
+            <p>
+                I am a junior Information Technology Student majoring in
+                Business Informatics at PHINMA - University of Pangasinan,
+                focused on problem-solving skills and analytical thinking.
+            </p>
+
+            <p>
+                I am dedicated on creating visual and web designs, capable
+                of performing effectively under pressure, developing
+                strategic solutions, and demonstrating strong communication
+                skills, enabling productive collaboration with teams and
+                stakeholders.
+            </p>
+
+            <div class="divider"></div>
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section class="section">
+            <h2 class="section-title">Major Projects</h2>
+
+            <p>
+                PHINMA - University of Pangasinan
+            </p>
+
+
+            <div class="project">
+                <div class="project-title">
+                    2d Jumping Game Engkanto Escapade (2024)
+                </div>
+
+                <div class="project-role">
+                    2d Artist
+                </div>
+
+                <ul>
+                    <li>
+                        This 2d horror game focuses on the user to engage with
+                        Filipino supernatural themes. This game have an immersive
+                        horror experience by including traditional supernatural
+                        entities like tikbalang, kapre and other mythological
+                        creatures.
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="project">
+                <div class="project-title">
+                    Thriftique (2025)
+                </div>
+
+                <div class="project-role">
+                    Visual Designer
+                </div>
+
+                <ul>
+                    <li>
+                        An online platform that promotes sustainable fashion
+                        by connecting buyers with pre-loved clothing.
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="project">
+                <div class="project-title">
+                    ReviewMate (2026)
+                </div>
+
+                <div class="project-role">
+                    Project Manager/Web Designer
+                </div>
+
+                <ul>
+                    <li>
+                        An AI AI powered, blockchain for automated student
+                        reviewers that summarizes docx, files, txt, and
+                        creates AI generated flashcards and quizzes.
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+
+            <div class="school">
+                <div class="school-name">
+                    PHINMA - University of Pangasinan (2023-2027)
+                </div>
+
+                <ul>
+                    <li>
+                        Bachelor of Science in Information Technology
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="school">
+                <div class="school-name">
+                    University of Luzon (2017-2023)
+                </div>
+
+                <ul>
+                    <li>
+                        TVL - Information Communication Technology
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
