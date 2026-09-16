@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aaron David B. Abad - IT Student CV">
+  <title>Aaron David B. Abad | CV</title>
+
+  <style>
+    :root {
+      --text: #222;
+      --muted: #555;
+      --line: #777;
+      --paper: #fff;
+      --background: #f2f2f2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.45;
+    }
+
+    .cv {
+      width: min(100%, 850px);
+      margin: 0 auto;
+      padding: 56px 64px;
+      background: var(--paper);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 2.65rem);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .contact {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin: 0 0 13px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.08rem;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.96rem;
+      text-align: justify;
+    }
+
+    .education-entry {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .education-left strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .education-left span {
+      font-size: 0.9rem;
+    }
+
+    .education-right {
+      text-align: right;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 27px;
+    }
+
+    li {
+      margin: 3px 0;
+      font-size: 0.94rem;
+    }
+
+    .project {
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      margin: 0 0 1px;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    .project ul {
+      margin-top: 0;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        padding: 0;
+        background: var(--paper);
+      }
+
+      .cv {
+        width: 100%;
+        padding: 34px 25px;
+        box-shadow: none;
+      }
+
+      .education-entry {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .education-right {
+        text-align: left;
+      }
+
+      p {
+        text-align: left;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .cv {
+        width: 100%;
+        min-height: 100vh;
+        padding: 45px 55px;
+        box-shadow: none;
+      }
+
+      a {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="cv">
+    <header>
+      <h1>Aaron David B. Abad</h1>
+      <p class="contact">
+        <a href="mailto:aaronabadav@gmail.com">aaronabadav@gmail.com</a>
+        | 09859707289 |
+        <a href="https://github.com/Abad-ui" target="_blank" rel="noopener">github.com/Abad-ui</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>PROFILE</h2>
+      <p>
+        IT student seeking an IT Support or Networking internship with hands-on
+        experience in network configuration, Windows Server, Active Directory,
+        and troubleshooting. Built virtualized home labs and networking projects
+        involving DHCP, DNS, VLANs, routing, and system administration.
+        Interested in developing practical skills in network support,
+        infrastructure, and IT operations.
+      </p>
+    </section>
+
+    <section>
+      <h2>EDUCATION</h2>
+      <div class="education-entry">
+        <div class="education-left">
+          <strong>University of Pangasinan</strong>
+          <span>Bachelor of Science in Information Technology</span>
+        </div>
+        <div class="education-right">
+          Dagupan City, Philippines<br>
+          2027
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>TECHNICAL SKILLS</h2>
+      <ul>
+        <li><strong>Networking:</strong> TCP/IP, IPv4 Subnetting, VLANs, Trunking, Inter-VLAN Routing, Static Routing, DHCP, DNS</li>
+        <li><strong>Full-Stack Development (MERN):</strong> MongoDB, Express.js, React, Node.js, REST APIs</li>
+        <li><strong>IT Support:</strong> Windows Server, Active Directory, Hardware Troubleshooting, System Configuration</li>
+        <li><strong>Security &amp; Smart Contracts:</strong> Authentication, Access Control, Solidity, On-Chain Data Verification</li>
+        <li><strong>Tools:</strong> Cisco Packet Tracer, VirtualBox, Git/GitHub</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>PROJECTS &amp; LABS</h2>
+
+      <div class="project">
+        <div class="project-title">Automated Energy Management System (Capstone)</div>
+        <ul>
+          <li>Designed and developed a backend REST API using Node.js and Express to manage energy data workflows.</li>
+          <li>Formulated comprehensive architecture diagrams and threat models to secure system data flow.</li>
+          <li>Developed and optimized Solidity smart contracts (`EnergyAuditTrail.sol`) for secure, on-chain data verification.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Cisco Network Infrastructure Labs</div>
+        <ul>
+          <li>Built and configured multi-router and multi-switch network topologies using Cisco Packet Tracer.</li>
+          <li>Configured IPv4 addressing, subnetting, VLANs, DHCP, NAT, ACLs, and static routing.</li>
+          <li>Performed network diagnostics using ping, traceroute, interface status, and routing table information.</li>
+          <li>Troubleshoot IP addressing, routing, interface, and connectivity configuration issues.</li>
+          <li>Documented network configurations and troubleshooting steps.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Windows Server &amp; Active Directory Home Lab</div>
+        <ul>
+          <li>Practiced diagnosing common Windows hardware, software, driver, and connectivity issues.</li>
+          <li>Used Windows system and network utilities to investigate system problems.</li>
+          <li>Practiced basic system configuration, software installation, and troubleshooting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>CERTIFICATES</h2>
+      <ul>
+        <li><strong>Introduction to Networks</strong> – Cisco Networking Academy</li>
+        <li><strong>Networking Essentials</strong> – Cisco Networking Academy</li>
+        <li><strong>Endpoint Security</strong> – Cisco Networking Academy</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
